@@ -355,6 +355,6 @@ Copyright © 2026 E-First Aid. All Rights Reserved.
 
 # 👨‍💻 Developed By
 
-E-First Aid Development Team
+Antony Rinaldi T
 
 Dedicated to making healthcare services more accessible, efficient, and user-friendly through technology.
