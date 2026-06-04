@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-First Aid</title>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <button class="menu-icon" id="menuButton" aria-label="Open menu" aria-expanded="false" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="menu" id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#appointments">Appointments</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="emergency-menu">
+          <a class="emergency-call" href="tel:108">Emergency Ambulance</a>
+          <a class="hospital-link" href="https://www.google.com/maps/search/nearby+hospitals" target="_blank" rel="noopener">Nearby Hospital</a>
+        </li>
+      </ul>
+    </nav>
+
+    <h1>
+      <button class="title-button" id="titleFirstAidButton" type="button">E-First Aid</button>
+    </h1>
+
+    <div class="notification-area">
+      <button class="notification-button" id="notificationButton" type="button" aria-label="Open notifications" aria-expanded="false">
+        <span class="bell-icon" aria-hidden="true"></span>
+        <span class="notification-count" id="notificationCount">3</span>
+      </button>
+
+      <div class="notification-panel" id="notificationPanel" aria-hidden="true">
+        <h2>Notifications</h2>
+        <button class="notification-item unread" type="button">
+          <strong>Appointment Reminder</strong>
+          <span>Nephrology appointment today at 11:15 AM.</span>
+        </button>
+        <button class="notification-item unread" type="button">
+          <strong>Prescription Ready</strong>
+          <span>Dr. Sneha Kapoor updated your skin care prescription.</span>
+        </button>
+        <button class="notification-item" type="button">
+          <strong>Upcoming Visit</strong>
+          <span>Pediatrics consultation scheduled for 04 Jun 2026.</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Your Health, Our Priority</h2>
+      <p>Providing trusted medical care for families and individuals.</p>
+      <button class="btn" id="openbtn" type="button">Book Appointment</button>
+    </div>
+
+    <div class="formcontainer" id="formcontainer1" aria-hidden="true">
+      <form id="appointmentForm" enctype="multipart/form-data">
+        <h3>Fill the patient details</h3>
+        <label for="patientName">Name</label>
+        <input id="patientName" name="patientName" type="text" required>
+
+        <label for="patientEmail">E-mail</label>
+        <input id="patientEmail" name="patientEmail" type="email" required>
+
+        <label for="appointmentTime">Time</label>
+        <input id="appointmentTime" name="appointmentTime" type="time" required>
+
+        <label for="patientPhone">Phone Number</label>
+        <input id="patientPhone" name="patientPhone" type="tel" required>
+
+        <label for="pastReport">Past Report <span class="optional-text">(optional)</span></label>
+        <input id="pastReport" name="pastReport" type="file" accept=".pdf,.jpg,.jpeg,.png">
+
+        <label for="appointmentSpecialization">Specialization</label>
+        <select id="appointmentSpecialization" name="appointmentSpecialization" required>
+          <option value="">Select specialization</option>
+          <option value="Cardiology">Cardiology</option>
+          <option value="Pediatrics">Pediatrics</option>
+          <option value="Nephrology">Nephrology</option>
+          <option value="Neurology">Neurology</option>
+          <option value="Dermatology">Dermatology</option>
+          <option value="Orthopedics">Orthopedics</option>
+        </select>
+
+        <div class="appointment-doctors" id="appointmentDoctors">
+          <p class="form-message">Select a specialization to see available doctors.</p>
+        </div>
+
+        <button type="submit">Book Appointment</button>
+        <button type="button" id="closebtn">Close</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="services" class="section">
+    <h2>Our Services</h2>
+    <div class="card-grid">
+      <article class="service-card" id="firstAidCard" role="button" tabindex="0" aria-haspopup="dialog">
+        <h3>First Aid</h3>
+        <p>Know how to perform first aid at a time of emergency.</p>
+      </article>
+      <article class="service-card" id="generalCheckupCard" role="button" tabindex="0" aria-haspopup="dialog">
+        <h3>General Checkup</h3>
+        <p>Routine health examinations and preventive care.</p>
+      </article>
+      <article class="service-card doctor-category" role="button" tabindex="0" aria-haspopup="dialog" data-specialization="Pediatrics">
+        <h3>Pediatrics</h3>
+        <p>Specialized care for children and adolescents.</p>
+      </article>
+      <article class="service-card doctor-category" role="button" tabindex="0" aria-haspopup="dialog" data-specialization="Cardiology">
+        <h3>Cardiology</h3>
+        <p>Heart health diagnostics and treatments.</p>
+      </article>
+      <article class="service-card doctor-category" role="button" tabindex="0" aria-haspopup="dialog" data-specialization="Nephrology">
+        <h3>Nephrologist</h3>
+        <p>Kidney health checkups, dialysis guidance, and urine-related concerns.</p>
+      </article>
+      <article class="service-card doctor-category" role="button" tabindex="0" aria-haspopup="dialog" data-specialization="Neurology">
+        <h3>Neurologist</h3>
+        <p>Care for headaches, nerve pain, seizures, and brain-related conditions.</p>
+      </article>
+      <article class="service-card doctor-category" role="button" tabindex="0" aria-haspopup="dialog" data-specialization="Dermatology">
+        <h3>Dermatologist</h3>
+        <p>Treatment for skin allergies, rashes, acne, wounds, and infections.</p>
+      </article>
+      <article class="service-card doctor-category" role="button" tabindex="0" aria-haspopup="dialog" data-specialization="Orthopedics">
+        <h3>Orthopedics</h3>
+        <p>Bone, joint, muscle, fracture, and injury-related medical support.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="modal" id="firstAidModal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="firstAidTitle">
+      <button class="modal-close" id="closeFirstAidModal" type="button" aria-label="Close first aid module">&times;</button>
+      <h2 id="firstAidTitle">First Aid Wound Check</h2>
+      <p class="modal-intro">Describe the wound, or open the camera to show it clearly.</p>
+
+      <form id="firstAidForm">
+        <label for="woundDescription">Describe the wound</label>
+        <textarea id="woundDescription" placeholder="Example: small cut on left hand, bleeding slowly, happened 10 minutes ago" required></textarea>
+
+        <div class="camera-panel first-aid-camera">
+          <button class="camera-button icon-button" id="firstAidOpenCameraBtn" type="button" aria-label="Open camera">
+            <span class="camera-symbol" aria-hidden="true"></span>
+            <span class="camera-label">Open Camera</span>
+          </button>
+          <button class="camera-button secondary" id="firstAidCloseCameraBtn" type="button" hidden>Close Camera</button>
+          <video id="firstAidCameraPreview" autoplay playsinline muted hidden></video>
+          <p class="camera-status" id="firstAidCameraStatus"></p>
+        </div>
+
+        <button type="submit">Submit Details</button>
+        <div class="ai-suggestion" id="firstAidSuggestion" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="generalCheckupModal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="generalCheckupTitle">
+      <button class="modal-close" id="closeGeneralCheckupModal" type="button" aria-label="Close general checkup module">&times;</button>
+      <h2 id="generalCheckupTitle">General Checkup</h2>
+      <p class="modal-intro">Select the checkup services the patient wants to do.</p>
+
+      <form id="generalCheckupForm">
+        <fieldset class="checkup-options">
+          <legend>Choose checkup type</legend>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="checkupType" value="Blood Pressure Check">
+            <span>Blood Pressure Check</span>
+          </label>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="checkupType" value="Blood Sugar Test">
+            <span>Blood Sugar Test</span>
+          </label>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="checkupType" value="Heart Rate Check">
+            <span>Heart Rate Check</span>
+          </label>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="checkupType" value="Temperature Check">
+            <span>Temperature Check</span>
+          </label>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="checkupType" value="Eye Checkup">
+            <span>Eye Checkup</span>
+          </label>
+
+          <label class="checkbox-option">
+            <input type="checkbox" name="checkupType" value="Full Body Checkup">
+            <span>Full Body Checkup</span>
+          </label>
+        </fieldset>
+
+        <p class="form-message" id="generalCheckupMessage"></p>
+        <button type="submit">Submit Checkup Details</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="doctorListModal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="doctorListTitle">
+      <button class="modal-close" id="closeDoctorListModal" type="button" aria-label="Close doctor list">&times;</button>
+      <h2 id="doctorListTitle">Available Doctors</h2>
+      <p class="modal-intro" id="doctorListIntro">Doctors filtered by specialization.</p>
+      <div class="doctor-list" id="doctorList"></div>
+    </div>
+  </div>
+
+  <section id="appointments" class="section section-muted">
+    <h2>Appointments</h2>
+    <div class="appointment-board">
+      <article class="appointment-column">
+        <h3>Past</h3>
+        <div class="appointment-card">
+          <div class="appointment-card-header">
+            <span class="status-pill past">Completed</span>
+            <time datetime="2026-05-16">16 May 2026</time>
+          </div>
+          <h4>Dr. Priya Sharma</h4>
+          <p><strong>Specialization:</strong> Cardiology</p>
+          <p><strong>Time:</strong> 10:30 AM</p>
+          <div class="prescription-box">
+            <strong>Prescription</strong>
+            <p>Amlodipine 5mg once daily after breakfast for 30 days. Reduce salt intake and repeat BP check after 2 weeks.</p>
+          </div>
+        </div>
+
+        <div class="appointment-card">
+          <div class="appointment-card-header">
+            <span class="status-pill past">Completed</span>
+            <time datetime="2026-05-22">22 May 2026</time>
+          </div>
+          <h4>Dr. Sneha Kapoor</h4>
+          <p><strong>Specialization:</strong> Dermatology</p>
+          <p><strong>Time:</strong> 12:45 PM</p>
+          <div class="prescription-box">
+            <strong>Prescription</strong>
+            <p>Cetirizine 10mg at night for 5 days. Apply prescribed antiseptic cream twice daily and keep the wound dry.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="appointment-column">
+        <h3>Current</h3>
+        <div class="appointment-card active-appointment">
+          <div class="appointment-card-header">
+            <span class="status-pill current">In Progress</span>
+            <time datetime="2026-06-01">01 Jun 2026</time>
+          </div>
+          <h4>Dr. Meera Iyer</h4>
+          <p><strong>Specialization:</strong> Nephrology</p>
+          <p><strong>Time:</strong> 11:15 AM</p>
+          <div class="prescription-box">
+            <strong>Prescription</strong>
+            <p>Prescription pending until consultation is completed. Drink enough water unless restricted by the doctor.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="appointment-column">
+        <h3>Upcoming</h3>
+        <div class="appointment-card">
+          <div class="appointment-card-header">
+            <span class="status-pill upcoming">Scheduled</span>
+            <time datetime="2026-06-04">04 Jun 2026</time>
+          </div>
+          <h4>Dr. Arjun Patel</h4>
+          <p><strong>Specialization:</strong> Pediatrics</p>
+          <p><strong>Time:</strong> 9:45 AM</p>
+          <div class="prescription-box">
+            <strong>Prescription</strong>
+            <p>Not provided yet. Prescription will appear after the doctor completes the appointment.</p>
+          </div>
+        </div>
+
+        <div class="appointment-card">
+          <div class="appointment-card-header">
+            <span class="status-pill upcoming">Scheduled</span>
+            <time datetime="2026-06-08">08 Jun 2026</time>
+          </div>
+          <h4>Dr. Aditya Verma</h4>
+          <p><strong>Specialization:</strong> Orthopedics</p>
+          <p><strong>Time:</strong> 4:00 PM</p>
+          <div class="prescription-box">
+            <strong>Prescription</strong>
+            <p>Not provided yet. Carry any previous X-ray, scan, or injury report for review.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-section">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 E-First Aid. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
